@@ -744,6 +744,16 @@
       .demo-actions{position:sticky;bottom:0;padding-top:12px;background:linear-gradient(180deg, rgba(7,17,31,0) 0%, rgba(7,17,31,.92) 24%, rgba(7,17,31,.98) 100%)}
     }
 
+
+    /* 3-LANGUAGE CRM LEAD SYSTEM */
+    .crm-system-card{border-color:rgba(103,232,249,.2);background:linear-gradient(180deg, rgba(103,232,249,.09), rgba(255,255,255,.05))}
+    .crm-status{display:none;margin-top:12px;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--muted);font-size:.92rem}
+    .crm-status.success{display:block;color:#bbf7d0;border-color:rgba(134,239,172,.28);background:rgba(134,239,172,.08)}
+    .crm-status.error{display:block;color:#fecaca;border-color:rgba(248,113,113,.28);background:rgba(248,113,113,.08)}
+    .crm-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.crm-full{grid-column:1/-1}
+    .crm-loader{width:18px;height:18px;border-radius:50%;border:2px solid rgba(8,17,28,.3);border-top-color:#08111c;animation:crmSpin .8s linear infinite;display:none}.crm-submit.loading .crm-loader{display:inline-block}@keyframes crmSpin{to{transform:rotate(360deg)}}
+    @media(max-width:780px){.crm-form-grid{grid-template-columns:1fr}.crm-full{grid-column:auto}}
+
   </style>
 </head>
 <body>
@@ -1217,33 +1227,22 @@
         </div>
 
         <div class="grid-3">
-          <div class="card form-wrap" style="grid-column: span 2;">
-            <form class="contact-form" action="mailto:marjan.posao@gmail.com" method="post" enctype="text/plain">
-              <label>
-                <span data-i18n="form_name">Your name</span>
-                <input type="text" name="name" data-i18n-placeholder="form_name_ph" placeholder="Your name" />
-              </label>
-              <label>
-                <span data-i18n="form_email">Your email</span>
-                <input type="email" name="email" data-i18n-placeholder="form_email_ph" placeholder="you@example.com" />
-              </label>
-              <label>
-                <span data-i18n="form_business">Business type</span>
-                <select name="business_type">
-                  <option data-i18n="opt_1">Salon / Barber</option>
-                  <option data-i18n="opt_2">Restaurant / Cafe</option>
-                  <option data-i18n="opt_3">Auto service</option>
-                  <option data-i18n="opt_4">Real estate</option>
-                  <option data-i18n="opt_5">Clinic / Dental</option>
-                  <option data-i18n="opt_6">Other</option>
-                </select>
-              </label>
-              <label>
-                <span data-i18n="form_message">What do you need help with?</span>
-                <textarea name="message" data-i18n-placeholder="form_message_ph" placeholder="Tell us what you want to automate or improve."></textarea>
-              </label>
-              <button class="btn btn-primary" type="submit" data-i18n="form_submit">Send request</button>
-              <p class="form-note" data-i18n="form_note">This form opens your default email app. You can also contact us directly by email or WhatsApp.</p>
+                    <div class="card form-wrap crm-system-card" style="grid-column: span 2;">
+            <form class="contact-form" id="ai-crm-lead-form">
+              <input type="hidden" name="source" value="Prague AI Growth Website" />
+              <div class="crm-form-grid">
+                <label><span data-i18n="crm_language">Language / Jezik / Jazyk</span><select name="language" id="crm-language" required><option value="en">EN</option><option value="sr">SR</option><option value="cz">CZ</option></select></label>
+                <label><span data-i18n="form_business">Business type</span><select name="business_type" required><option value="Auto service" data-i18n="opt_3">Auto service</option><option value="Restaurant / Cafe" data-i18n="opt_2">Restaurant / Cafe</option><option value="Security agency" data-i18n="crm_security">Security agency</option><option value="Salon / Barber" data-i18n="opt_1">Salon / Barber</option><option value="Other" data-i18n="opt_6">Other</option></select></label>
+                <label><span data-i18n="form_name">Your name</span><input type="text" name="name" data-i18n-placeholder="form_name_ph" placeholder="Your name" required /></label>
+                <label><span data-i18n="form_email">Your email</span><input type="email" name="email" data-i18n-placeholder="form_email_ph" placeholder="you@example.com" required /></label>
+                <label><span data-i18n="crm_phone">WhatsApp / phone</span><input type="tel" name="phone" data-i18n-placeholder="crm_phone_ph" placeholder="+420..." /></label>
+                <label><span data-i18n="crm_demo_interest">Which demo are you interested in?</span><select name="demo_interest" required><option value="AutoFlow AI">AutoFlow AI</option><option value="TableFlow AI">TableFlow AI</option><option value="ShiftGuard AI">ShiftGuard AI</option><option value="Not sure" data-i18n="crm_not_sure">Not sure</option></select></label>
+                <label class="crm-full"><span data-i18n="crm_problem">Biggest business problem</span><select name="problem" required><option value="Too many messages" data-i18n="crm_problem_1">Too many messages</option><option value="Too many calls" data-i18n="crm_problem_2">Too many calls</option><option value="Losing customers" data-i18n="crm_problem_3">Losing customers</option><option value="Booking chaos" data-i18n="crm_problem_4">Booking chaos</option><option value="Shift scheduling chaos" data-i18n="crm_problem_5">Shift scheduling chaos</option><option value="Need AI chatbot" data-i18n="crm_problem_6">Need AI chatbot</option></select></label>
+                <label class="crm-full"><span data-i18n="form_message">What do you need help with?</span><textarea name="message" data-i18n-placeholder="form_message_ph" placeholder="Tell us what you want to automate or improve."></textarea></label>
+              </div>
+              <button class="btn btn-primary crm-submit" type="submit"><span data-i18n="crm_submit">Send demo request</span><span class="crm-loader" aria-hidden="true"></span></button>
+              <p class="form-note" data-i18n="crm_form_note">Your request goes into our CRM and you receive an automatic email in your selected language.</p>
+              <div class="crm-status" id="crm-status"></div>
             </form>
           </div>
 
@@ -1603,6 +1602,22 @@
         faq_2_text: "Yes. Many businesses start with one chatbot, one lead form, or one booking flow and expand later.",
         faq_3_title: "Is this only for big companies?",
         faq_3_text: "No. It is often most valuable for smaller businesses where time and missed leads matter the most.",
+
+        "crm_language": "Language / Jezik / Jazyk",
+        "crm_security": "Security agency",
+        "crm_phone": "WhatsApp / phone",
+        "crm_phone_ph": "+420...",
+        "crm_demo_interest": "Which demo are you interested in?",
+        "crm_not_sure": "Not sure",
+        "crm_problem": "Biggest business problem",
+        "crm_problem_1": "Too many messages",
+        "crm_problem_2": "Too many calls",
+        "crm_problem_3": "Losing customers",
+        "crm_problem_4": "Booking chaos",
+        "crm_problem_5": "Shift scheduling chaos",
+        "crm_problem_6": "Need AI chatbot",
+        "crm_submit": "Send demo request",
+        "crm_form_note": "Your request goes into our CRM and you receive an automatic email in your selected language.",
         footer_2: "AI systems for local business growth."
       },
       sr: {
@@ -1754,6 +1769,22 @@
         faq_2_text: "Da. Mnoge firme počinju sa jednim chatbotom, jednom lead formom ili jednim booking tokom i kasnije šire sistem.",
         faq_3_title: "Da li je ovo samo za velike firme?",
         faq_3_text: "Ne. Često je najvrednije za manje firme gde vreme i propušteni leadovi najviše znače.",
+
+        "crm_language": "Jezik / Language / Jazyk",
+        "crm_security": "Security agencija",
+        "crm_phone": "WhatsApp / telefon",
+        "crm_phone_ph": "+420...",
+        "crm_demo_interest": "Koji demo vas zanima?",
+        "crm_not_sure": "Nisam siguran",
+        "crm_problem": "Najveći problem u firmi",
+        "crm_problem_1": "Previše poruka",
+        "crm_problem_2": "Previše poziva",
+        "crm_problem_3": "Gubim klijente",
+        "crm_problem_4": "Zakazivanje je haos",
+        "crm_problem_5": "Raspored smena je haos",
+        "crm_problem_6": "Treba mi AI chatbot",
+        "crm_submit": "Pošalji demo zahtev",
+        "crm_form_note": "Zahtev ide u CRM i automatski dobijaš email na izabranom jeziku.",
         footer_2: "AI sistemi za rast lokalnog biznisa."
       },
       cz: {
@@ -1905,6 +1936,22 @@
         faq_2_text: "Ano. Mnoho firem začíná jedním chatbotem, jedním lead formulářem nebo jedním rezervačním flow a později rozšiřuje systém.",
         faq_3_title: "Je to jen pro velké firmy?",
         faq_3_text: "Ne. Často je to nejcennější právě pro menší firmy, kde čas a ztracené leady hrají největší roli.",
+
+        "crm_language": "Jazyk / Language / Jezik",
+        "crm_security": "Bezpečnostní agentura",
+        "crm_phone": "WhatsApp / telefon",
+        "crm_phone_ph": "+420...",
+        "crm_demo_interest": "O které demo máte zájem?",
+        "crm_not_sure": "Nejsem si jistý",
+        "crm_problem": "Největší problém ve firmě",
+        "crm_problem_1": "Příliš mnoho zpráv",
+        "crm_problem_2": "Příliš mnoho telefonátů",
+        "crm_problem_3": "Ztrácíme zákazníky",
+        "crm_problem_4": "Chaos v rezervacích",
+        "crm_problem_5": "Chaos v plánování směn",
+        "crm_problem_6": "Potřebuji AI chatbota",
+        "crm_submit": "Odeslat žádost o demo",
+        "crm_form_note": "Žádost půjde do CRM a automaticky obdržíte email ve zvoleném jazyce.",
         footer_2: "AI systémy pro růst lokálního podnikání."
       }
     };
@@ -2048,6 +2095,8 @@
         btn.classList.toggle('active', btn.dataset.lang === lang);
       });
       localStorage.setItem('pag_lang', lang);
+      const crmLang = document.getElementById('crm-language');
+      if (crmLang) crmLang.value = lang;
       updateAllDemos(lang);
     }
 
@@ -2152,6 +2201,17 @@
     }));
     document.querySelectorAll('.demo-modal').forEach(modal => modal.addEventListener('click', e => { if(e.target===modal){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; } }));
     document.addEventListener('keydown', e => { if(e.key==='Escape'){ document.querySelectorAll('.demo-modal.active').forEach(m=>{m.classList.remove('active');m.setAttribute('aria-hidden','true');}); document.body.style.overflow=''; } });
+
+
+    const CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyzuxAgCywNomBQiMRc9LaLMyaNg5w_STzV_LFrZ0QigEX6qvf9483aYTGy2m6o4VG6fg/exec";
+    const crmStatusMessages = {
+      en:{success:"Request sent. Check your email and WhatsApp.",error:"Something went wrong. Please contact us on WhatsApp.",missingUrl:"CRM is not connected yet. Paste your Google Apps Script Web App URL into CRM_WEB_APP_URL."},
+      sr:{success:"Zahtev je poslat. Proverite email i WhatsApp.",error:"Došlo je do greške. Kontaktirajte nas preko WhatsApp-a.",missingUrl:"CRM još nije povezan. Ubacite Google Apps Script Web App URL u CRM_WEB_APP_URL."},
+      cz:{success:"Žádost byla odeslána. Zkontrolujte email a WhatsApp.",error:"Něco se pokazilo. Kontaktujte nás přes WhatsApp.",missingUrl:"CRM zatím není připojen. Vložte Google Apps Script Web App URL do CRM_WEB_APP_URL."}
+    };
+    function showCrmStatus(type,message){const s=document.getElementById('crm-status');if(!s)return;s.className=`crm-status ${type}`;s.textContent=message;}
+    const crmForm=document.getElementById('ai-crm-lead-form');
+    if(crmForm){crmForm.addEventListener('submit',async(e)=>{e.preventDefault();const btn=crmForm.querySelector('.crm-submit');const lang=document.getElementById('crm-language')?.value||localStorage.getItem('pag_lang')||'en';const dict=crmStatusMessages[lang]||crmStatusMessages.en;if(!CRM_WEB_APP_URL||CRM_WEB_APP_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT')){showCrmStatus('error',dict.missingUrl);return;}btn?.classList.add('loading');btn?.setAttribute('disabled','disabled');const payload=Object.fromEntries(new FormData(crmForm).entries());payload.page_url=window.location.href;payload.user_agent=navigator.userAgent;payload.timestamp_client=new Date().toISOString();try{await fetch(CRM_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});showCrmStatus('success',dict.success);crmForm.reset();document.getElementById('crm-language').value=lang;}catch(err){console.error(err);showCrmStatus('error',dict.error);}finally{btn?.classList.remove('loading');btn?.removeAttribute('disabled');}});}
 
     const savedLang = localStorage.getItem('pag_lang') || 'en';
     applyTranslations(savedLang);
