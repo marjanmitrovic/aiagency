@@ -754,6 +754,14 @@
     .crm-loader{width:18px;height:18px;border-radius:50%;border:2px solid rgba(8,17,28,.3);border-top-color:#08111c;animation:crmSpin .8s linear infinite;display:none}.crm-submit.loading .crm-loader{display:inline-block}@keyframes crmSpin{to{transform:rotate(360deg)}}
     @media(max-width:780px){.crm-form-grid{grid-template-columns:1fr}.crm-full{grid-column:auto}}
 
+
+    /* CRM SALES WORKFLOW UPDATE */
+    .crm-workflow-panel{margin-top:18px;padding:18px;border-radius:18px;border:1px solid rgba(103,232,249,.14);background:rgba(103,232,249,.05)}
+    .crm-workflow-panel h4{margin:0 0 10px;font-size:1rem}
+    .crm-workflow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+    .crm-step{padding:10px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.82rem;text-align:center}
+    @media(max-width:780px){.crm-workflow-steps{grid-template-columns:1fr}}
+
   </style>
 </head>
 <body>
@@ -1243,6 +1251,18 @@
               <button class="btn btn-primary crm-submit" type="submit"><span data-i18n="crm_submit">Send demo request</span><span class="crm-loader" aria-hidden="true"></span></button>
               <p class="form-note" data-i18n="crm_form_note">Your request goes into our CRM and you receive an automatic email in your selected language.</p>
               <div class="crm-status" id="crm-status"></div>
+
+              <div class="crm-workflow-panel">
+                <h4 data-i18n="crm_workflow_title">What happens after you submit?</h4>
+                <p class="form-note" data-i18n="crm_workflow_text">Your request goes into our CRM. We review your case, contact you, book a short demo call, and send a focused proposal.</p>
+                <div class="crm-workflow-steps">
+                  <div class="crm-step" data-i18n="crm_step_1">New Lead</div>
+                  <div class="crm-step" data-i18n="crm_step_2">Contacted</div>
+                  <div class="crm-step" data-i18n="crm_step_3">Demo Booked</div>
+                  <div class="crm-step" data-i18n="crm_step_4">Offer Sent</div>
+                  <div class="crm-step" data-i18n="crm_step_5">Won / Lost</div>
+                </div>
+              </div>
             </form>
           </div>
 
