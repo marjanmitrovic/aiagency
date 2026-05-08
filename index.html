@@ -2284,7 +2284,7 @@
     document.addEventListener('keydown', e => { if(e.key==='Escape'){ document.querySelectorAll('.demo-modal.active').forEach(m=>{m.classList.remove('active');m.setAttribute('aria-hidden','true');}); document.body.style.overflow=''; } });
 
 
-    const CRM_WEB_APP_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+    const CRM_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyzuxAgCywNomBQiMRc9LaLMyaNg5w_STzV_LFrZ0QigEX6qvf9483aYTGy2m6o4VG6fg/exec";
     const crmStatusMessages = {
       en:{success:"Request sent. Check your email and WhatsApp.",error:"Something went wrong. Please contact us on WhatsApp.",missingUrl:"CRM is not connected yet. Paste your Google Apps Script Web App URL into CRM_WEB_APP_URL."},
       sr:{success:"Zahtev je poslat. Proverite email i WhatsApp.",error:"Došlo je do greške. Kontaktirajte nas preko WhatsApp-a.",missingUrl:"CRM još nije povezan. Ubacite Google Apps Script Web App URL u CRM_WEB_APP_URL."},
