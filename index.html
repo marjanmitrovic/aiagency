@@ -764,8 +764,8 @@
 
 
     /* AI CHAT LEAD COLLECTOR */
-    .ai-chat-fab{position:fixed;right:18px;bottom:88px;z-index:140;width:64px;height:64px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,var(--accent,#8aa4ff),var(--accent-2,#67e8f9));color:#07111f;font-weight:900;box-shadow:0 25px 80px rgba(0,0,0,.38);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.25rem}
-    .ai-chat{position:fixed;right:18px;bottom:160px;z-index:141;width:min(420px,calc(100vw - 28px));max-height:min(720px,calc(100vh - 190px));display:none;flex-direction:column;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(7,17,31,.96);color:var(--text,#eef4ff);overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.48);backdrop-filter:blur(16px)}
+    .ai-chat-fab{position:fixed;right:18px;bottom:88px;z-index:99999;width:64px;height:64px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,var(--accent,#8aa4ff),var(--accent-2,#67e8f9));color:#07111f;font-weight:900;box-shadow:0 25px 80px rgba(0,0,0,.38);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.25rem}
+    .ai-chat{position:fixed;right:18px;bottom:160px;z-index:100000;width:min(420px,calc(100vw - 28px));max-height:min(720px,calc(100vh - 190px));display:none;flex-direction:column;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(7,17,31,.96);color:var(--text,#eef4ff);overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.48);backdrop-filter:blur(16px)}
     .ai-chat.active{display:flex}
     .ai-chat-head{padding:16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(138,164,255,.18),rgba(103,232,249,.08))}
     .ai-chat-title{font-weight:900;margin:0;font-size:1rem}.ai-chat-sub{margin:3px 0 0;color:var(--muted,#aab7d4);font-size:.84rem}
@@ -1493,6 +1493,42 @@
       <div data-i18n="footer_2">AI systems for local business growth.</div>
     </div>
   </footer>
+
+  <!-- AI CHAT LEAD COLLECTOR HTML -->
+  <button class="ai-chat-fab" id="ai-chat-fab" type="button" aria-label="Open AI chat">AI</button>
+  <section class="ai-chat" id="ai-chat" aria-live="polite">
+    <div class="ai-chat-head">
+      <div>
+        <p class="ai-chat-title" id="ai-chat-title">AI Lead Assistant</p>
+        <p class="ai-chat-sub" id="ai-chat-sub">Find the best AI demo for your business</p>
+      </div>
+      <button class="ai-chat-close" id="ai-chat-close" type="button" aria-label="Close">×</button>
+    </div>
+
+    <div class="ai-chat-lang">
+      <button type="button" data-chat-lang="en" class="active">EN</button>
+      <button type="button" data-chat-lang="sr">SR</button>
+      <button type="button" data-chat-lang="cz">CZ</button>
+    </div>
+
+    <div class="ai-chat-messages" id="ai-chat-messages"></div>
+    <div class="ai-chat-options" id="ai-chat-options"></div>
+
+    <form class="ai-chat-form" id="ai-chat-lead-form">
+      <div class="ai-chat-row">
+        <input name="name" id="ai-chat-name" placeholder="Your name" required />
+        <input name="email" id="ai-chat-email" type="email" placeholder="Email" required />
+      </div>
+      <div class="ai-chat-row">
+        <input name="phone" id="ai-chat-phone" placeholder="WhatsApp / phone" />
+        <input name="company" id="ai-chat-company" placeholder="Company name" />
+      </div>
+      <textarea name="message" id="ai-chat-message" placeholder="Short message"></textarea>
+      <button class="ai-chat-submit" id="ai-chat-submit" type="submit">Send demo request</button>
+      <div class="ai-chat-note" id="ai-chat-note">Your request goes into CRM and you receive an email confirmation.</div>
+    </form>
+  </section>
+
 
   <a class="whatsapp-float" href="https://wa.me/420722080268?text=Hello%2C%20I%20want%20a%20free%20AI%20audit%20for%20my%20business." target="_blank" rel="noopener" aria-label="WhatsApp">W</a>
 
