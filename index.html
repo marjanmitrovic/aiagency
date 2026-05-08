@@ -765,27 +765,546 @@
 
     /* AI CHAT LEAD COLLECTOR */
     .ai-chat-fab{position:fixed;right:18px;bottom:88px;z-index:99999;width:64px;height:64px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,var(--accent,#8aa4ff),var(--accent-2,#67e8f9));color:#07111f;font-weight:900;box-shadow:0 25px 80px rgba(0,0,0,.38);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.25rem}
-    .ai-chat{position:fixed;right:18px;bottom:160px;z-index:100000;width:min(420px,calc(100vw - 28px));max-height:min(720px,calc(100vh - 190px));display:none;flex-direction:column;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(7,17,31,.96);color:var(--text,#eef4ff);overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.48);backdrop-filter:blur(16px)}
-    .ai-chat.active{display:flex}
+    .ai-chat{position:fixed;right:18px;bottom:92px;z-index:100000;width:min(500px,calc(100vw - 28px));max-height:calc(100vh - 118px);display:none;flex-direction:column;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(7,17,31,.96);color:var(--text,#eef4ff);overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.48);backdrop-filter:blur(16px)}
+    .ai-chat.active{display:flex !important}
     .ai-chat-head{padding:16px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(138,164,255,.18),rgba(103,232,249,.08))}
     .ai-chat-title{font-weight:900;margin:0;font-size:1rem}.ai-chat-sub{margin:3px 0 0;color:var(--muted,#aab7d4);font-size:.84rem}
     .ai-chat-close{background:rgba(255,255,255,.08);color:var(--text,#eef4ff);border:1px solid rgba(255,255,255,.12);border-radius:12px;width:38px;height:38px;cursor:pointer;font-weight:900}
     .ai-chat-lang{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
     .ai-chat-lang button{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--muted,#aab7d4);border-radius:999px;padding:7px 10px;font-weight:800;cursor:pointer}
     .ai-chat-lang button.active{background:linear-gradient(135deg,var(--accent,#8aa4ff),var(--accent-2,#67e8f9));color:#07111f}
-    .ai-chat-messages{padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;min-height:280px;-webkit-overflow-scrolling:touch}
+    .ai-chat-messages{padding:12px 14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;min-height:180px;max-height:280px;-webkit-overflow-scrolling:touch}
     .ai-msg{max-width:86%;padding:11px 13px;border-radius:16px;font-size:.92rem;line-height:1.45;white-space:pre-wrap}
     .ai-msg.bot{align-self:flex-start;background:rgba(255,255,255,.07);color:#dce6f7;border-bottom-left-radius:6px}
     .ai-msg.user{align-self:flex-end;background:rgba(103,232,249,.15);color:#d9fbff;border-bottom-right-radius:6px}
     .ai-chat-options{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 12px}
     .ai-option{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--text,#eef4ff);border-radius:999px;padding:9px 11px;cursor:pointer;font-weight:800;font-size:.82rem}
-    .ai-chat-form{display:grid;gap:10px;padding:14px;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+    .ai-chat-form{display:grid;gap:9px;padding:12px 14px 14px;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
     .ai-chat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .ai-chat-form input,.ai-chat-form textarea{width:100%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text,#eef4ff);border-radius:14px;padding:12px 13px;font:inherit;outline:none}
     .ai-chat-form textarea{min-height:74px;resize:vertical}
     .ai-chat-submit{border:0;border-radius:14px;padding:13px 15px;background:linear-gradient(135deg,var(--accent,#8aa4ff),var(--accent-2,#67e8f9));color:#07111f;font-weight:900;cursor:pointer}
     .ai-chat-note{color:var(--muted,#aab7d4);font-size:.8rem;line-height:1.4}
-    @media(max-width:780px){.ai-chat-fab{right:14px;bottom:84px}.ai-chat{right:0;left:0;bottom:0;width:100%;max-height:92vh;border-radius:24px 24px 0 0}.ai-chat-messages{min-height:260px}.ai-chat-row{grid-template-columns:1fr}}
+    @media(max-width:780px){.ai-chat-fab{right:14px;bottom:84px}.ai-chat{right:0;left:0;bottom:0;width:100%;height:96vh;max-height:96vh;border-radius:24px 24px 0 0}.ai-chat-head{padding:14px}.ai-chat-messages{min-height:120px;max-height:34vh}.ai-chat-form{padding-bottom:22px}.ai-chat-row{grid-template-columns:1fr}}
+
+  
+    /* AI CHAT WINDOW SIZE FIX */
+    .ai-chat{
+      bottom:92px !important;
+      width:min(500px, calc(100vw - 28px)) !important;
+      max-height:calc(100vh - 118px) !important;
+    }
+    .ai-chat-messages{
+      min-height:180px !important;
+      max-height:280px !important;
+      overflow-y:auto !important;
+    }
+    .ai-chat-form{
+      flex-shrink:0 !important;
+    }
+    @media(max-width:780px){
+      .ai-chat{
+        bottom:0 !important;
+        height:96vh !important;
+        max-height:96vh !important;
+      }
+      .ai-chat-messages{
+        min-height:120px !important;
+        max-height:34vh !important;
+      }
+      .ai-chat-form{
+        padding-bottom:24px !important;
+      }
+    }
+
+  
+    /* AI CHAT BOTTOM CUT FIX */
+    .ai-chat{
+      bottom:110px !important;
+      max-height:calc(100vh - 140px) !important;
+      overflow:hidden !important;
+    }
+    .ai-chat-form{
+      padding-bottom:26px !important;
+    }
+    .ai-chat-form textarea{
+      min-height:90px !important;
+      margin-bottom:6px !important;
+    }
+    .ai-chat-submit{
+      margin-bottom:4px !important;
+      flex-shrink:0 !important;
+    }
+    @media(max-width:780px){
+      .ai-chat{
+        bottom:0 !important;
+        height:96dvh !important;
+        max-height:96dvh !important;
+        display:none;
+      }
+      .ai-chat.active{
+        display:flex !important;
+      }
+      .ai-chat-form{
+        padding-bottom:calc(34px + env(safe-area-inset-bottom)) !important;
+      }
+      .ai-chat-messages{
+        max-height:28dvh !important;
+      }
+    }
+
+  
+    /* AI CHAT HARD FIX - NO MORE BOTTOM CLIPPING */
+    .ai-chat{
+      position:fixed !important;
+      right:18px !important;
+      top:88px !important;
+      bottom:24px !important;
+      width:min(520px, calc(100vw - 36px)) !important;
+      max-height:none !important;
+      height:auto !important;
+      display:none;
+      flex-direction:column !important;
+      overflow:hidden !important;
+    }
+
+    .ai-chat.active{
+      display:flex !important;
+    }
+
+    .ai-chat-head,
+    .ai-chat-lang{
+      flex:0 0 auto !important;
+    }
+
+    .ai-chat-messages{
+      flex:1 1 auto !important;
+      min-height:0 !important;
+      max-height:none !important;
+      overflow-y:auto !important;
+      padding:12px 14px !important;
+    }
+
+    .ai-chat-options{
+      flex:0 0 auto !important;
+      max-height:96px !important;
+      overflow-y:auto !important;
+      padding:0 14px 10px !important;
+    }
+
+    .ai-chat-form{
+      flex:0 0 auto !important;
+      max-height:44vh !important;
+      overflow-y:auto !important;
+      padding:12px 14px 18px !important;
+      border-top:1px solid rgba(255,255,255,.08) !important;
+    }
+
+    .ai-chat-form textarea{
+      min-height:74px !important;
+      max-height:110px !important;
+    }
+
+    .ai-chat-submit{
+      width:100% !important;
+      min-height:48px !important;
+      flex-shrink:0 !important;
+      margin-bottom:0 !important;
+    }
+
+    @media(max-width:780px){
+      .ai-chat{
+        left:0 !important;
+        right:0 !important;
+        top:8px !important;
+        bottom:0 !important;
+        width:100% !important;
+        height:auto !important;
+        max-height:none !important;
+        border-radius:22px 22px 0 0 !important;
+      }
+
+      .ai-chat-messages{
+        flex:1 1 auto !important;
+        min-height:0 !important;
+      }
+
+      .ai-chat-options{
+        max-height:86px !important;
+      }
+
+      .ai-chat-form{
+        max-height:46vh !important;
+        padding-bottom:calc(24px + env(safe-area-inset-bottom)) !important;
+      }
+
+      .ai-chat-row{
+        grid-template-columns:1fr !important;
+      }
+    }
+
+    @media(max-height:720px){
+      .ai-chat{
+        top:64px !important;
+        bottom:12px !important;
+      }
+
+      .ai-chat-form{
+        max-height:50vh !important;
+      }
+
+      .ai-chat-messages{
+        font-size:.92rem !important;
+      }
+    }
+
+  
+    /* NEW CLEAN AI CHAT - REBUILT FROM ZERO */
+    .ai-chat-fab,
+    .ai-chat {
+      display:none !important;
+    }
+
+    .pag-chat-fab {
+      position:fixed;
+      right:22px;
+      bottom:92px;
+      z-index:2147483000;
+      width:66px;
+      height:66px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.18);
+      background:linear-gradient(135deg,#8aa4ff,#67e8f9);
+      color:#06111f;
+      font-weight:900;
+      font-size:1.25rem;
+      box-shadow:0 24px 70px rgba(0,0,0,.45);
+      cursor:pointer;
+    }
+
+    .pag-chat {
+      position:fixed;
+      right:22px;
+      top:82px;
+      bottom:24px;
+      z-index:2147483001;
+      width:min(460px, calc(100vw - 44px));
+      display:none;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:24px;
+      background:#07111f;
+      color:#eef4ff;
+      box-shadow:0 28px 90px rgba(0,0,0,.55);
+      overflow:hidden;
+    }
+
+    .pag-chat.open {
+      display:block;
+    }
+
+    .pag-chat-scroll {
+      height:100%;
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+      padding:0 0 22px;
+    }
+
+    .pag-chat-header {
+      position:sticky;
+      top:0;
+      z-index:3;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      padding:18px;
+      background:linear-gradient(135deg,rgba(138,164,255,.25),rgba(103,232,249,.10)), #101b31;
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+
+    .pag-chat-title {
+      margin:0;
+      font-size:1.05rem;
+      font-weight:900;
+    }
+
+    .pag-chat-sub {
+      margin:4px 0 0;
+      color:#aab7d4;
+      font-size:.88rem;
+      line-height:1.45;
+    }
+
+    .pag-chat-close {
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      color:#eef4ff;
+      font-size:1.1rem;
+      cursor:pointer;
+      flex:0 0 auto;
+    }
+
+    .pag-chat-lang {
+      display:flex;
+      gap:8px;
+      padding:14px 18px 0;
+      flex-wrap:wrap;
+    }
+
+    .pag-chat-lang button {
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#aab7d4;
+      border-radius:999px;
+      padding:8px 12px;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .pag-chat-lang button.active {
+      color:#06111f;
+      background:linear-gradient(135deg,#8aa4ff,#67e8f9);
+    }
+
+    .pag-chat-body {
+      padding:16px 18px 8px;
+    }
+
+    .pag-chat-msg {
+      width:fit-content;
+      max-width:88%;
+      padding:12px 14px;
+      margin:0 0 10px;
+      border-radius:17px;
+      font-size:.94rem;
+      line-height:1.5;
+      white-space:pre-wrap;
+    }
+
+    .pag-chat-msg.bot {
+      background:rgba(255,255,255,.075);
+      color:#dce6f7;
+      border-bottom-left-radius:6px;
+    }
+
+    .pag-chat-msg.user {
+      margin-left:auto;
+      background:rgba(103,232,249,.16);
+      color:#d9fbff;
+      border-bottom-right-radius:6px;
+    }
+
+    .pag-chat-options {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      padding:2px 18px 14px;
+    }
+
+    .pag-chat-option {
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#eef4ff;
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:850;
+      font-size:.86rem;
+      cursor:pointer;
+    }
+
+    .pag-chat-form {
+      display:grid;
+      gap:11px;
+      margin:0 18px 18px;
+      padding:16px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.045);
+    }
+
+    .pag-chat-form-row {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .pag-chat-form input,
+    .pag-chat-form textarea {
+      width:100%;
+      min-width:0;
+      border:1px solid rgba(255,255,255,.13);
+      background:rgba(255,255,255,.06);
+      color:#eef4ff;
+      border-radius:14px;
+      padding:13px 14px;
+      font:inherit;
+      outline:none;
+    }
+
+    .pag-chat-form textarea {
+      min-height:86px;
+      resize:vertical;
+    }
+
+    .pag-chat-submit {
+      width:100%;
+      min-height:48px;
+      border:0;
+      border-radius:15px;
+      background:linear-gradient(135deg,#8aa4ff,#67e8f9);
+      color:#06111f;
+      font-weight:950;
+      cursor:pointer;
+    }
+
+    .pag-chat-note {
+      color:#aab7d4;
+      font-size:.82rem;
+      line-height:1.45;
+    }
+
+    @media(max-width:780px) {
+      .pag-chat-fab {
+        right:16px;
+        bottom:86px;
+      }
+
+      .pag-chat {
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        width:100%;
+        height:100dvh;
+        border-radius:0;
+        border-left:0;
+        border-right:0;
+      }
+
+      .pag-chat-scroll {
+        padding-bottom:calc(28px + env(safe-area-inset-bottom));
+      }
+
+      .pag-chat-header {
+        padding:16px;
+      }
+
+      .pag-chat-body {
+        padding:14px 16px 8px;
+      }
+
+      .pag-chat-options {
+        padding:2px 16px 14px;
+      }
+
+      .pag-chat-form {
+        margin:0 16px 20px;
+      }
+
+      .pag-chat-form-row {
+        grid-template-columns:1fr;
+      }
+    }
+
+  
+    /* FINAL CLEAN AI CHAT BUBBLE */
+    .ai-chat-fab,
+    .ai-chat{
+      display:none !important;
+    }
+
+    .pag-chat-fab{
+      position:fixed !important;
+      right:22px !important;
+      bottom:92px !important;
+      z-index:2147483646 !important;
+      width:66px !important;
+      height:66px !important;
+      border-radius:50% !important;
+      border:1px solid rgba(255,255,255,.22) !important;
+      background:linear-gradient(135deg,#8aa4ff,#67e8f9) !important;
+      color:#06111f !important;
+      font-weight:900 !important;
+      font-size:1.25rem !important;
+      box-shadow:0 24px 70px rgba(0,0,0,.55) !important;
+      cursor:pointer !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      font-family:Inter,Arial,sans-serif !important;
+    }
+
+    .pag-chat{
+      position:fixed !important;
+      right:22px !important;
+      top:82px !important;
+      bottom:24px !important;
+      z-index:2147483647 !important;
+      width:min(460px, calc(100vw - 44px)) !important;
+      display:none !important;
+      border:1px solid rgba(255,255,255,.16) !important;
+      border-radius:24px !important;
+      background:#07111f !important;
+      color:#eef4ff !important;
+      box-shadow:0 28px 90px rgba(0,0,0,.65) !important;
+      overflow:hidden !important;
+      font-family:Inter,Arial,sans-serif !important;
+    }
+
+    .pag-chat.open{display:block !important}
+
+    .pag-chat-scroll{
+      height:100% !important;
+      overflow-y:auto !important;
+      -webkit-overflow-scrolling:touch !important;
+      padding:0 0 22px !important;
+    }
+
+    .pag-chat-header{
+      position:sticky !important;
+      top:0 !important;
+      z-index:3 !important;
+      display:flex !important;
+      justify-content:space-between !important;
+      align-items:flex-start !important;
+      gap:12px !important;
+      padding:18px !important;
+      background:linear-gradient(135deg,rgba(138,164,255,.25),rgba(103,232,249,.10)), #101b31 !important;
+      border-bottom:1px solid rgba(255,255,255,.10) !important;
+    }
+
+    .pag-chat-title{margin:0 !important;font-size:1.05rem !important;font-weight:900 !important}
+    .pag-chat-sub{margin:4px 0 0 !important;color:#aab7d4 !important;font-size:.88rem !important;line-height:1.45 !important}
+    .pag-chat-close{width:40px !important;height:40px !important;border-radius:14px !important;border:1px solid rgba(255,255,255,.14) !important;background:rgba(255,255,255,.08) !important;color:#eef4ff !important;font-size:1.1rem !important;cursor:pointer !important;flex:0 0 auto !important}
+    .pag-chat-lang{display:flex !important;gap:8px !important;padding:14px 18px 0 !important;flex-wrap:wrap !important}
+    .pag-chat-lang button{border:1px solid rgba(255,255,255,.14) !important;background:rgba(255,255,255,.06) !important;color:#aab7d4 !important;border-radius:999px !important;padding:8px 12px !important;font-weight:900 !important;cursor:pointer !important}
+    .pag-chat-lang button.active{color:#06111f !important;background:linear-gradient(135deg,#8aa4ff,#67e8f9) !important}
+    .pag-chat-body{padding:16px 18px 8px !important}
+    .pag-chat-msg{width:fit-content !important;max-width:88% !important;padding:12px 14px !important;margin:0 0 10px !important;border-radius:17px !important;font-size:.94rem !important;line-height:1.5 !important;white-space:pre-wrap !important}
+    .pag-chat-msg.bot{background:rgba(255,255,255,.075) !important;color:#dce6f7 !important;border-bottom-left-radius:6px !important}
+    .pag-chat-msg.user{margin-left:auto !important;background:rgba(103,232,249,.16) !important;color:#d9fbff !important;border-bottom-right-radius:6px !important}
+    .pag-chat-options{display:flex !important;flex-wrap:wrap !important;gap:8px !important;padding:2px 18px 14px !important}
+    .pag-chat-option{border:1px solid rgba(255,255,255,.14) !important;background:rgba(255,255,255,.06) !important;color:#eef4ff !important;border-radius:999px !important;padding:10px 12px !important;font-weight:850 !important;font-size:.86rem !important;cursor:pointer !important}
+    .pag-chat-form{display:grid !important;gap:11px !important;margin:0 18px 18px !important;padding:16px !important;border-radius:20px !important;border:1px solid rgba(255,255,255,.10) !important;background:rgba(255,255,255,.045) !important}
+    .pag-chat-form-row{display:grid !important;grid-template-columns:1fr 1fr !important;gap:10px !important}
+    .pag-chat-form input,.pag-chat-form textarea{width:100% !important;min-width:0 !important;border:1px solid rgba(255,255,255,.13) !important;background:rgba(255,255,255,.06) !important;color:#eef4ff !important;border-radius:14px !important;padding:13px 14px !important;font:inherit !important;outline:none !important}
+    .pag-chat-form textarea{min-height:86px !important;resize:vertical !important}
+    .pag-chat-submit{width:100% !important;min-height:48px !important;border:0 !important;border-radius:15px !important;background:linear-gradient(135deg,#8aa4ff,#67e8f9) !important;color:#06111f !important;font-weight:950 !important;cursor:pointer !important}
+    .pag-chat-note{color:#aab7d4 !important;font-size:.82rem !important;line-height:1.45 !important}
+
+    @media(max-width:780px){
+      .pag-chat-fab{right:16px !important;bottom:86px !important}
+      .pag-chat{left:0 !important;right:0 !important;top:0 !important;bottom:0 !important;width:100% !important;height:100dvh !important;border-radius:0 !important;border-left:0 !important;border-right:0 !important}
+      .pag-chat-scroll{padding-bottom:calc(28px + env(safe-area-inset-bottom)) !important}
+      .pag-chat-header{padding:16px !important}
+      .pag-chat-body{padding:14px 16px 8px !important}
+      .pag-chat-options{padding:2px 16px 14px !important}
+      .pag-chat-form{margin:0 16px 20px !important}
+      .pag-chat-form-row{grid-template-columns:1fr !important}
+    }
 
   </style>
 </head>
@@ -2296,7 +2815,7 @@
 
 
     /* AI CHAT LEAD COLLECTOR LOGIC */
-    const AI_CHAT_CRM_URL = typeof CRM_WEB_APP_URL !== "undefined" ? CRM_WEB_APP_URL : "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+    const AI_CHAT_CRM_URL = typeof CRM_WEB_APP_URL !== "undefined" ? CRM_WEB_APP_URL : "https://script.google.com/macros/s/AKfycbyzuxAgCywNomBQiMRc9LaLMyaNg5w_STzV_LFrZ0QigEX6qvf9483aYTGy2m6o4VG6fg/exec";
     const aiChatTexts = {
       en:{title:"AI Lead Assistant",sub:"Find the best AI demo for your business",hello:"Hi. I can help you choose the right AI system for your business.\n\nWhat type of business do you have?",askProblem:"Good. What is your biggest problem right now?",recommendationIntro:"Based on that, I recommend:",askContact:"Leave your contact and I will send you the demo/audit details.",sent:"Request sent. Check your email and WhatsApp.",error:"CRM is not connected yet or there was an error. You can still contact us on WhatsApp.",name:"Your name",email:"Email",phone:"WhatsApp / phone",company:"Company name",message:"Short message",submit:"Send demo request",note:"Your request goes into CRM and you receive an email confirmation.",businesses:{auto:"Auto service",restaurant:"Restaurant / Cafe",security:"Security agency",salon:"Salon / Barber",other:"Other"},problems:{messages:"Too many messages",calls:"Too many calls",lost:"Losing customers",booking:"Booking chaos",shifts:"Shift scheduling chaos",chatbot:"Need AI chatbot"},demos:{auto:"AutoFlow AI",restaurant:"TableFlow AI",security:"ShiftGuard AI",salon:"AI Booking Starter",other:"AI Business Audit"}},
       sr:{title:"AI Lead Asistent",sub:"Pronađi najbolji AI demo za svoj biznis",hello:"Zdravo. Mogu da ti pomognem da izabereš pravi AI sistem za tvoj biznis.\n\nKoji tip firme imaš?",askProblem:"Dobro. Koji je najveći problem trenutno?",recommendationIntro:"Na osnovu toga preporučujem:",askContact:"Ostavi kontakt i poslaću ti demo/audit detalje.",sent:"Zahtev je poslat. Proveri email i WhatsApp.",error:"CRM još nije povezan ili je došlo do greške. Možeš nas kontaktirati preko WhatsApp-a.",name:"Ime i prezime",email:"Email",phone:"WhatsApp / telefon",company:"Naziv firme",message:"Kratka poruka",submit:"Pošalji demo zahtev",note:"Zahtev ide u CRM i dobijaš email potvrdu.",businesses:{auto:"Autoservis",restaurant:"Restoran / Kafić",security:"Security agencija",salon:"Salon / Barber",other:"Drugo"},problems:{messages:"Previše poruka",calls:"Previše poziva",lost:"Gubim klijente",booking:"Zakazivanje je haos",shifts:"Raspored smena je haos",chatbot:"Treba mi AI chatbot"},demos:{auto:"AutoFlow AI",restaurant:"TableFlow AI",security:"ShiftGuard AI",salon:"AI Booking Starter",other:"AI poslovna analiza"}},
@@ -2320,5 +2839,239 @@
     applyTranslations(savedLang);
     updateAllDemos(savedLang);
   </script>
+
+
+  <!-- FINAL CLEAN AI CHAT HTML -->
+  <button class="pag-chat-fab" id="pag-chat-fab" type="button" aria-label="Open AI chat">AI</button>
+
+  <section class="pag-chat" id="pag-chat" aria-live="polite">
+    <div class="pag-chat-scroll">
+      <div class="pag-chat-header">
+        <div>
+          <p class="pag-chat-title" id="pag-chat-title">AI Lead Assistant</p>
+          <p class="pag-chat-sub" id="pag-chat-sub">Find the best AI demo for your business</p>
+        </div>
+        <button class="pag-chat-close" id="pag-chat-close" type="button" aria-label="Close">×</button>
+      </div>
+
+      <div class="pag-chat-lang">
+        <button type="button" data-pag-lang="en" class="active">EN</button>
+        <button type="button" data-pag-lang="sr">SR</button>
+        <button type="button" data-pag-lang="cz">CZ</button>
+      </div>
+
+      <div class="pag-chat-body" id="pag-chat-body"></div>
+      <div class="pag-chat-options" id="pag-chat-options"></div>
+
+      <form class="pag-chat-form" id="pag-chat-form">
+        <div class="pag-chat-form-row">
+          <input id="pag-chat-name" name="name" placeholder="Your name" required>
+          <input id="pag-chat-email" name="email" type="email" placeholder="Email" required>
+        </div>
+        <div class="pag-chat-form-row">
+          <input id="pag-chat-phone" name="phone" placeholder="WhatsApp / phone">
+          <input id="pag-chat-company" name="company" placeholder="Company name">
+        </div>
+        <textarea id="pag-chat-message" name="message" placeholder="Short message"></textarea>
+        <button class="pag-chat-submit" id="pag-chat-submit" type="submit">Send demo request</button>
+        <div class="pag-chat-note" id="pag-chat-note">Your request goes into CRM and you receive an email confirmation.</div>
+      </form>
+    </div>
+  </section>
+
+
+<script>
+(function(){
+  const PAG_CHAT_CRM_URL = "https://script.google.com/macros/s/AKfycbyzuxAgCywNomBQiMRc9LaLMyaNg5w_STzV_LFrZ0QigEX6qvf9483aYTGy2m6o4VG6fg/exec";
+
+  const texts = {
+    en: {
+      title:"AI Lead Assistant", sub:"Find the best AI demo for your business",
+      hello:"Hi. I can help you choose the right AI system for your business.\n\nWhat type of business do you have?",
+      askProblem:"Good. What is your biggest problem right now?", recommendationIntro:"Based on that, I recommend:",
+      askContact:"Leave your contact and I will send you the demo/audit details.", sent:"Request sent. Check your email and WhatsApp.",
+      error:"There was an error sending the request. You can still contact us on WhatsApp.",
+      name:"Your name", email:"Email", phone:"WhatsApp / phone", company:"Company name", message:"Short message", submit:"Send demo request",
+      note:"Your request goes into CRM and you receive an email confirmation.",
+      businesses:{auto:"Auto service",restaurant:"Restaurant / Cafe",security:"Security agency",salon:"Salon / Barber",other:"Other"},
+      problems:{messages:"Too many messages",calls:"Too many calls",lost:"Losing customers",booking:"Booking chaos",shifts:"Shift scheduling chaos",chatbot:"Need AI chatbot"},
+      demos:{auto:"AutoFlow AI",restaurant:"TableFlow AI",security:"ShiftGuard AI",salon:"AI Booking Starter",other:"AI Business Audit"}
+    },
+    sr: {
+      title:"AI Lead Asistent", sub:"Pronađi najbolji AI demo za svoj biznis",
+      hello:"Zdravo. Mogu da ti pomognem da izabereš pravi AI sistem za tvoj biznis.\n\nKoji tip firme imaš?",
+      askProblem:"Dobro. Koji je najveći problem trenutno?", recommendationIntro:"Na osnovu toga preporučujem:",
+      askContact:"Ostavi kontakt i poslaću ti demo/audit detalje.", sent:"Zahtev je poslat. Proveri email i WhatsApp.",
+      error:"Došlo je do greške pri slanju. Možeš nas kontaktirati preko WhatsApp-a.",
+      name:"Ime i prezime", email:"Email", phone:"WhatsApp / telefon", company:"Naziv firme", message:"Kratka poruka", submit:"Pošalji demo zahtev",
+      note:"Zahtev ide u CRM i dobijaš email potvrdu.",
+      businesses:{auto:"Autoservis",restaurant:"Restoran / Kafić",security:"Security agencija",salon:"Salon / Barber",other:"Drugo"},
+      problems:{messages:"Previše poruka",calls:"Previše poziva",lost:"Gubim klijente",booking:"Zakazivanje je haos",shifts:"Raspored smena je haos",chatbot:"Treba mi AI chatbot"},
+      demos:{auto:"AutoFlow AI",restaurant:"TableFlow AI",security:"ShiftGuard AI",salon:"AI Booking Starter",other:"AI poslovna analiza"}
+    },
+    cz: {
+      title:"AI Lead Asistent", sub:"Najděte nejlepší AI demo pro vaši firmu",
+      hello:"Dobrý den. Pomohu vám vybrat správný AI systém pro vaši firmu.\n\nJaký typ firmy máte?",
+      askProblem:"Dobře. Jaký je váš největší problém právě teď?", recommendationIntro:"Na základě toho doporučuji:",
+      askContact:"Zanechte kontakt a pošlu vám detaily dema/auditu.", sent:"Žádost byla odeslána. Zkontrolujte email a WhatsApp.",
+      error:"Došlo k chybě při odesílání. Můžete nás kontaktovat přes WhatsApp.",
+      name:"Jméno a příjmení", email:"Email", phone:"WhatsApp / telefon", company:"Název firmy", message:"Krátká zpráva", submit:"Odeslat žádost o demo",
+      note:"Žádost jde do CRM a obdržíte emailové potvrzení.",
+      businesses:{auto:"Autoservis",restaurant:"Restaurace / Kavárna",security:"Bezpečnostní agentura",salon:"Salon / Barber",other:"Jiné"},
+      problems:{messages:"Příliš mnoho zpráv",calls:"Příliš mnoho telefonátů",lost:"Ztrácíme zákazníky",booking:"Chaos v rezervacích",shifts:"Chaos v plánování směn",chatbot:"Potřebuji AI chatbota"},
+      demos:{auto:"AutoFlow AI",restaurant:"TableFlow AI",security:"ShiftGuard AI",salon:"AI Booking Starter",other:"AI business audit"}
+    }
+  };
+
+  const state = { lang: localStorage.getItem("pag_lang") || "en", business:"", problem:"", demo:"" };
+  const $ = (id) => document.getElementById(id);
+  const dict = () => texts[state.lang] || texts.en;
+
+  function addMsg(type, text){
+    const body = $("pag-chat-body");
+    if (!body) return;
+    const msg = document.createElement("div");
+    msg.className = "pag-chat-msg " + type;
+    msg.textContent = text;
+    body.appendChild(msg);
+  }
+
+  function setOptions(options){
+    const wrap = $("pag-chat-options");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+    options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pag-chat-option";
+      btn.textContent = opt.label;
+      btn.addEventListener("click", opt.onClick);
+      wrap.appendChild(btn);
+    });
+  }
+
+  function scrollBottom(){
+    const sc = document.querySelector(".pag-chat-scroll");
+    if (sc) sc.scrollTop = sc.scrollHeight;
+  }
+
+  function reset(){
+    const d = dict();
+    const body = $("pag-chat-body");
+    if (body) body.innerHTML = "";
+    state.business = ""; state.problem = ""; state.demo = "";
+
+    $("pag-chat-title").textContent = d.title;
+    $("pag-chat-sub").textContent = d.sub;
+    $("pag-chat-name").placeholder = d.name;
+    $("pag-chat-email").placeholder = d.email;
+    $("pag-chat-phone").placeholder = d.phone;
+    $("pag-chat-company").placeholder = d.company;
+    $("pag-chat-message").placeholder = d.message;
+    $("pag-chat-submit").textContent = d.submit;
+    $("pag-chat-note").textContent = d.note;
+
+    document.querySelectorAll("[data-pag-lang]").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.pagLang === state.lang);
+    });
+
+    addMsg("bot", d.hello);
+    setOptions(Object.entries(d.businesses).map(([key, label]) => ({
+      label,
+      onClick: () => chooseBusiness(key)
+    })));
+  }
+
+  function chooseBusiness(key){
+    const d = dict();
+    state.business = d.businesses[key];
+    state.demo = d.demos[key] || d.demos.other;
+    addMsg("user", state.business);
+    addMsg("bot", d.askProblem);
+    setOptions(Object.entries(d.problems).map(([pkey, label]) => ({
+      label,
+      onClick: () => chooseProblem(pkey)
+    })));
+    scrollBottom();
+  }
+
+  function chooseProblem(key){
+    const d = dict();
+    state.problem = d.problems[key];
+    addMsg("user", state.problem);
+    addMsg("bot", d.recommendationIntro + " " + state.demo + "\n\n" + d.askContact);
+    $("pag-chat-message").value = state.business + " | " + state.problem + " | " + state.demo;
+    setOptions([]);
+    scrollBottom();
+  }
+
+  function openChat(){
+    $("pag-chat").classList.add("open");
+    reset();
+  }
+
+  function closeChat(){
+    $("pag-chat").classList.remove("open");
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    $("pag-chat-fab")?.addEventListener("click", openChat);
+    $("pag-chat-close")?.addEventListener("click", closeChat);
+
+    document.querySelectorAll("[data-pag-lang]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.lang = btn.dataset.pagLang || "en";
+        localStorage.setItem("pag_lang", state.lang);
+        reset();
+      });
+    });
+
+    $("pag-chat-form")?.addEventListener("submit", async function(event){
+      event.preventDefault();
+      const d = dict();
+      const payload = {
+        language: state.lang,
+        name: $("pag-chat-name").value,
+        email: $("pag-chat-email").value,
+        phone: $("pag-chat-phone").value,
+        business_type: state.business || $("pag-chat-company").value || "Unknown",
+        demo_interest: state.demo || "AI Business Audit",
+        problem: state.problem || "AI consultation",
+        message: $("pag-chat-message").value,
+        source: "Final Clean AI Chat",
+        page_url: window.location.href,
+        user_agent: navigator.userAgent,
+        timestamp_client: new Date().toISOString()
+      };
+
+      const submit = $("pag-chat-submit");
+      submit.disabled = true;
+      submit.textContent = "...";
+
+      try {
+        await fetch(PAG_CHAT_CRM_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        addMsg("bot", d.sent);
+        event.currentTarget.reset();
+        scrollBottom();
+      } catch(err) {
+        console.error(err);
+        addMsg("bot", d.error);
+        scrollBottom();
+      } finally {
+        submit.disabled = false;
+        submit.textContent = d.submit;
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
+
+<!-- CRM connected to Apps Script Web App /exec URL -->
