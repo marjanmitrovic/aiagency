@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%238aa4ff'/%3E%3Cstop offset='1' stop-color='%2367e8f9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='16' width='64' height='64' fill='%2307111f'/%3E%3Cpath d='M34 6 18 34h12l-4 24 20-31H34z' fill='url(%23g)'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="assets/prague-ai-growth-icon.svg" />
   <style>
     .hero-watermark{position:absolute;right:10px;top:10px;font-size:clamp(2rem,8vw,7rem);font-weight:900;letter-spacing:.2em;color:rgba(255,255,255,.03);pointer-events:none;z-index:1;user-select:none}
 
@@ -270,6 +270,28 @@
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   transform: rotate(38deg);
+}
+
+
+.pag-logo-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-core .pag-logo-building {
+  left: 18px;
+  bottom: 16px;
+  width: 28px;
+  height: 38px;
+}
+
+.logo-core .pag-logo-arrow {
+  left: 13px;
+  bottom: 13px;
+  width: 48px;
+  height: 48px;
+  border-bottom-width: 7px;
+  border-right-width: 7px;
 }
 
     .brand span { color: var(--accent-2); }
@@ -1361,14 +1383,69 @@
       .pag-chat-form-row{grid-template-columns:1fr !important}
     }
 
+  
+    /* REAL PRAGUE AI GROWTH SVG LOGOS */
+    .brand-logo-img{
+      display:block;
+      width:230px;
+      max-width:min(230px, 58vw);
+      height:auto;
+    }
+
+    .brand-logo-only{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-logo-only + .brand-title-fallback{
+      display:none;
+    }
+
+    .logo-core.pag-logo-hero{
+      overflow:visible;
+      background:transparent;
+      box-shadow:none;
+      border-radius:0;
+    }
+
+    .hero-logo-img{
+      width:92px;
+      height:92px;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 20px 32px rgba(0,0,0,.32));
+    }
+
+    @media(max-width:780px){
+      .brand-logo-img{
+        width:190px;
+      }
+    }
+
+  
+    /* Header logo crop fix */
+    .brand-logo-img{
+      width:260px !important;
+      max-width:42vw !important;
+      height:auto !important;
+      object-fit:contain !important;
+      overflow:visible !important;
+    }
+    @media(max-width:780px){
+      .brand-logo-img{
+        width:220px !important;
+        max-width:80vw !important;
+      }
+    }
+
   </style>
 </head>
 <body>
   <header class="nav">
     <div class="container nav-inner">
       <a href="#top" class="brand">
-        <span class="brand-badge pag-logo-mini" aria-hidden="true">   <span class="pag-logo-building"></span>   <span class="pag-logo-arrow"></span> </span>
-        <span>Prague AI Growth</span><span style="font-size:0.72rem;color:var(--accent-2);display:block;line-height:1;">AUTOMATION STUDIO</span>
+        <span class="brand-logo-only"><img class="brand-logo-img" src="assets/prague-ai-growth-logo.svg" alt="Prague AI Growth" /></span>
       </a>
 
       <nav class="nav-links">
@@ -1449,7 +1526,7 @@
           <div class="hero-logo-mark">
             <div class="logo-beam"></div>
             <div class="logo-pulse"></div>
-            <div class="logo-core"><svg viewBox='0 0 64 64' width='40' height='40'><defs><linearGradient id='lg2' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#08111c'/><stop offset='100%' stop-color='#103040'/></linearGradient></defs><path d='M35 4 18 33h12l-4 27 22-33H35z' fill='url(#lg2)'/></svg></div>
+            <div class="logo-core pag-logo-hero"><img class="hero-logo-img" src="assets/prague-ai-growth-icon.svg" alt="Prague AI Growth icon" /></div>
             <div class="logo-orbit orbit-x"></div>
             <div class="logo-orbit orbit-y"></div>
           </div>
