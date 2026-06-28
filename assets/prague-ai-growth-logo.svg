@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" role="img" aria-labelledby="title desc">
+  <title id="title">Prague AI Growth logo</title>
+  <desc id="desc">Professional logo for Prague AI Growth with Prague silhouette, circuit motif, and growth arrow.</desc>
+  <defs>
+    <linearGradient id="silver" x1="120" y1="20" x2="420" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#eef1f6"/>
+      <stop offset="1" stop-color="#c8d0dd"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="50" y1="340" x2="520" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14b8ff"/>
+      <stop offset="0.55" stop-color="#306bff"/>
+      <stop offset="1" stop-color="#7b4dff"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18c3ff"/>
+      <stop offset="1" stop-color="#7645ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0b1020" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <g stroke="url(#accent)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M30 255h72l38 38v58"/>
+      <path d="M86 163l74 74v155"/>
+      <path d="M157 106v67l57 57v121"/>
+    </g>
+    <g fill="#ffffff" stroke="url(#accent)" stroke-width="8">
+      <circle cx="30" cy="255" r="16"/>
+      <circle cx="86" cy="163" r="16"/>
+      <circle cx="157" cy="106" r="16"/>
+    </g>
+
+    <path d="M220 308v-97c0-8 2-15 7-21l31-42V58l41 148 17-88 17 88 16-34 16 34 26-80v182c-55-4-110-4-171 0z" fill="url(#silver)"/>
+    <path d="M208 308c55-11 121-16 195 0v78h-42v-52c0-9-7-16-16-16s-16 7-16 16v52h-31v-81c0-9-7-16-16-16s-16 7-16 16v81h-58z" fill="url(#silver)"/>
+
+    <g fill="url(#accent2)">
+      <rect x="420" y="305" width="40" height="81" rx="4"/>
+      <rect x="495" y="273" width="40" height="113" rx="4"/>
+      <rect x="570" y="235" width="40" height="151" rx="4"/>
+      <rect x="645" y="186" width="40" height="200" rx="4"/>
+    </g>
+    <path d="M76 350c120 0 238-24 341-90 92-59 168-144 246-233l25 17c-82 96-165 186-264 249-110 70-235 96-381 96H76z" fill="url(#accent)"/>
+    <path d="M638 62l77-33-33 77-10-25-26-19z" fill="#6fe2ff"/>
+  </g>
+
+  <g font-family="Inter, Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="760" y="268" font-size="144" fill="#ffffff" letter-spacing="-4">Prague</text>
+    <text x="1220" y="268" font-size="144" fill="url(#accent)" letter-spacing="-4">AI</text>
+    <text x="1380" y="268" font-size="144" fill="#ffffff" letter-spacing="-4">Growth</text>
+  </g>
+</svg>

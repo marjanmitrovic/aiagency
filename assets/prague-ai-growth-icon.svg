@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Prague AI Growth icon</title>
+  <desc id="desc">Icon mark with Prague silhouette, circuits and growth arrow.</desc>
+  <defs>
+    <linearGradient id="silver" x1="150" y1="60" x2="500" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.45" stop-color="#eef1f6"/>
+      <stop offset="1" stop-color="#c8d0dd"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="60" y1="560" x2="610" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14b8ff"/>
+      <stop offset="0.55" stop-color="#306bff"/>
+      <stop offset="1" stop-color="#7b4dff"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#accent)" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 420h84l44 44v68"/>
+    <path d="M126 312l86 86v178"/>
+    <path d="M210 230v76l66 66v144"/>
+  </g>
+  <g fill="#ffffff" stroke="url(#accent)" stroke-width="10">
+    <circle cx="60" cy="420" r="22"/>
+    <circle cx="126" cy="312" r="22"/>
+    <circle cx="210" cy="230" r="22"/>
+  </g>
+  <path d="M280 520V330c0-10 3-18 9-26l42-58V120l50 180 22-107 22 107 20-46 20 46 34-94v314c-70-6-146-6-219 0z" fill="url(#silver)"/>
+  <path d="M265 520c70-14 155-20 250 0v110h-52v-70c0-12-10-22-22-22s-22 10-22 22v70h-38V515c0-12-10-22-22-22s-22 10-22 22v115h-72z" fill="url(#silver)"/>
+  <g fill="url(#accent)">
+    <rect x="482" y="506" width="44" height="124" rx="6"/>
+    <rect x="552" y="456" width="44" height="174" rx="6"/>
+  </g>
+  <path d="M120 585c130 0 245-28 339-93 82-57 150-138 222-223l27 18c-75 91-150 177-241 240-104 72-227 106-373 106H120z" fill="url(#accent)"/>
+  <path d="M638 300l70-30-30 70-10-22-30-18z" fill="#6fe2ff"/>
+</svg>
