@@ -1,4 +1,4 @@
-name: Remove trust bar section
+name: Landing page text cleanup
 
 on:
   push:
@@ -9,27 +9,36 @@ permissions:
   contents: write
 
 jobs:
-  remove-trustbar:
+  cleanup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Remove trust bar block
+      - name: Apply landing page text cleanup
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
+          original = s
+
+          # Keep trust bar removed if it exists again.
           start = s.find('    <section style="padding:18px 0 0; position:relative; z-index:1;">')
-          if start == -1:
-              print('Trust bar section already removed.')
-          else:
+          if start != -1:
               hero = s.find('    <section class="hero">', start)
               if hero == -1:
                   raise SystemExit('Hero section not found after trust bar.')
               s = s[:start] + s[hero:]
+
+          # Remove requested Serbian phrase from the demo heading.
+          s = s.replace('Live demo proizvodi za tvoje najjače niše', 'Live demo proizvodi')
+          s = s.replace('za tvoje najjače niše', '')
+
+          if s != original:
               p.write_text(s, encoding='utf-8')
-              print('Trust bar section removed.')
+              print('Landing page text cleaned.')
+          else:
+              print('No matching text found; nothing changed.')
           PY
       - name: Commit change
         run: |
@@ -39,6 +48,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Remove trust bar from landing page"
+            git commit -m "Remove niche phrase from Serbian demo title"
             git push
           fi
