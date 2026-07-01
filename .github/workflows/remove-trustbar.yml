@@ -14,15 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Apply landing page text cleanup
+      - name: Apply landing page text cleanup and meta tags
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
           original = s
 
-          # Keep trust bar removed if it exists again.
           start = s.find('    <section style="padding:18px 0 0; position:relative; z-index:1;">')
           if start != -1:
               hero = s.find('    <section class="hero">', start)
@@ -30,15 +30,17 @@ jobs:
                   raise SystemExit('Hero section not found after trust bar.')
               s = s[:start] + s[hero:]
 
-          # Remove requested Serbian phrase from the demo heading.
           s = s.replace('Live demo proizvodi za tvoje najjače niše', 'Live demo proizvodi')
           s = s.replace('za tvoje najjače niše', '')
 
+          meta = '''  <meta name="description" content="AI systems for Prague businesses: chatbots, lead capture, booking automation and practical AI audits." />\n  <!-- Facebook / social preview -->\n  <meta property="og:type" content="website" />\n  <meta property="og:url" content="https://marjanmitrovic.github.io/AiAgency/" />\n  <meta property="og:title" content="Prague AI Growth | AI Systems for Prague Businesses" />\n  <meta property="og:description" content="AI systems for Prague businesses: chatbots, lead capture, booking automation and practical AI audits." />\n  <meta property="og:image" content="https://marjanmitrovic.github.io/AiAgency/og-cover.png" />\n  <meta property="og:image:secure_url" content="https://marjanmitrovic.github.io/AiAgency/og-cover.png" />\n  <meta property="og:image:type" content="image/png" />\n  <meta property="og:image:width" content="1200" />\n  <meta property="og:image:height" content="630" />\n  <meta property="og:site_name" content="Prague AI Growth" />\n  <meta name="twitter:card" content="summary_large_image" />\n  <meta name="twitter:title" content="Prague AI Growth | AI Systems for Prague Businesses" />\n  <meta name="twitter:description" content="Chatbots, lead capture, booking automation and AI audits for Prague businesses." />\n  <meta name="twitter:image" content="https://marjanmitrovic.github.io/AiAgency/og-cover.png" />\n'''
+          s = re.sub(r'  <meta name="description".*?\n(?:  <!-- Facebook / social preview -->\n)?(?:  <meta (?:property|name)="(?:og:|twitter:).*?\n)*', meta, s, count=1)
+
           if s != original:
               p.write_text(s, encoding='utf-8')
-              print('Landing page text cleaned.')
+              print('Landing page text and meta tags updated.')
           else:
-              print('No matching text found; nothing changed.')
+              print('No changes needed.')
           PY
       - name: Commit change
         run: |
@@ -48,6 +50,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Remove niche phrase from Serbian demo title"
+            git commit -m "Add Facebook preview meta tags to AiAgency"
             git push
           fi
+
+# trigger: facebook-preview
