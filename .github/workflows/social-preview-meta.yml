@@ -1,0 +1,52 @@
+name: Social preview meta tags
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add social meta tags
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          original = s
+          meta = '''  <meta property="og:title" content="Prague AI Growth | AI Systems for Prague Businesses" />
+  <meta property="og:description" content="AI automation, chatbots, lead capture and practical business systems for Prague companies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marjanmitrovic.github.io/AiAgency/" />
+  <meta property="og:site_name" content="Prague AI Growth" />
+  <meta property="og:image" content="https://marjanmitrovic.github.io/AiAgency/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prague AI Growth | AI Systems for Prague Businesses" />
+  <meta name="twitter:description" content="AI automation, chatbots, lead capture and practical business systems for Prague companies." />
+  <meta name="twitter:image" content="https://marjanmitrovic.github.io/AiAgency/og-cover.png" />'''
+          start = s.find('  <meta property="og:title"')
+          end = s.find('  <link rel="icon"')
+          if start != -1 and end != -1 and start < end:
+              s = s[:start] + meta + '\n' + s[end:]
+          elif end != -1:
+              s = s[:end] + meta + '\n' + s[end:]
+          if s != original:
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Facebook preview meta tags"
+            git push
+          fi
