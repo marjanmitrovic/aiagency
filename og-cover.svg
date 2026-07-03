@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Prague AI Growth social preview</title>
+  <desc id="desc">Social preview image for Prague AI Growth AI systems agency.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0e1830"/>
+      <stop offset="1" stop-color="#101b37"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="70" y1="560" x2="1120" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8aa4ff"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1005" cy="95" r="310" fill="#67e8f9" opacity="0.10"/>
+  <circle cx="118" cy="560" r="250" fill="#8aa4ff" opacity="0.12"/>
+  <g opacity="0.14" stroke="#67e8f9" stroke-width="1">
+    <path d="M0 120h1200M0 240h1200M0 360h1200M0 480h1200"/>
+    <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630"/>
+  </g>
+  <g filter="url(#glow)">
+    <rect x="72" y="72" width="134" height="134" rx="30" fill="url(#accent)"/>
+    <text x="139" y="154" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900" fill="#07111f">AI</text>
+  </g>
+  <text x="72" y="292" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900" fill="#eef4ff">Prague AI Growth</text>
+  <text x="76" y="370" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800" fill="#67e8f9">AI systems for Prague businesses</text>
+  <text x="78" y="430" font-family="Inter, Arial, sans-serif" font-size="31" fill="#cdd8ee">Chatbots • Lead capture • Booking automation • AI audits</text>
+  <rect x="76" y="508" width="312" height="62" rx="31" fill="url(#accent)"/>
+  <text x="232" y="549" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900" fill="#07111f">Free AI Audit</text>
+  <g transform="translate(742 262)">
+    <rect width="390" height="292" rx="36" fill="rgba(255,255,255,0.06)" stroke="#67e8f9" stroke-opacity="0.45"/>
+    <circle cx="72" cy="78" r="16" fill="#67e8f9"/>
+    <text x="110" y="88" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#eef4ff">24/7 AI responses</text>
+    <circle cx="72" cy="148" r="16" fill="#8aa4ff"/>
+    <text x="110" y="158" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#eef4ff">More captured leads</text>
+    <circle cx="72" cy="218" r="16" fill="#c4b5fd"/>
+    <text x="110" y="228" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#eef4ff">Less manual work</text>
+  </g>
+</svg>
