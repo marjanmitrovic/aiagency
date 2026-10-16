@@ -42,14 +42,21 @@ function AF_install() {
     props.setProperty('AF_SHEET_ID', book.getId());
     sheetId = book.getId();
   }
-  // Idempotent installation: remove only this script's existing AutoFlow triggers.
-  ScriptApp.getProjectTriggers().filter(t => ['AF_processInbox', 'AF_dailySummary'].indexOf(t.getHandlerFunction()) !== -1)
+  // Install or update the 30-minute inbox trigger.
+  AF_setHalfHourInterval();
+  ScriptApp.getProjectTriggers().filter(t => t.getHandlerFunction() === 'AF_dailySummary')
     .forEach(t => ScriptApp.deleteTrigger(t));
-  ScriptApp.newTrigger('AF_processInbox').timeBased().everyMinutes(5).create();
   ScriptApp.newTrigger('AF_dailySummary').timeBased().everyDays(1).atHour(8).create();
   props.setProperty('AF_INSTALLED_AT', new Date().toISOString());
   Logger.log('AutoFlow nastaven. Tabulka: ' + SpreadsheetApp.openById(sheetId).getUrl());
   // Do not scan historic mail at installation: only incoming messages newer than installation.
+}
+
+/** Upgrade an existing installation from 5 to 30 minutes without resetting its history. */
+function AF_setHalfHourInterval() {
+  ScriptApp.getProjectTriggers().filter(t => t.getHandlerFunction() === 'AF_processInbox')
+    .forEach(t => ScriptApp.deleteTrigger(t));
+  ScriptApp.newTrigger('AF_processInbox').timeBased().everyMinutes(30).create();
 }
 
 /** Pause email processing without deleting customer data. */
@@ -58,7 +65,7 @@ function AF_pause() {
     .forEach(t => ScriptApp.deleteTrigger(t));
 }
 
-/** Run on a 5-minute clock trigger. Incoming customer mail stays in Gmail. */
+/** Run on a 30-minute clock trigger. Incoming customer mail stays in Gmail. */
 function AF_processInbox() {
   const lock = LockService.getScriptLock();
   if (!lock.tryLock(AF.lockMs)) return;
