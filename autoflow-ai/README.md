@@ -4,7 +4,7 @@ Adds a **real Gmail automation** to the existing AiAgency/AutoFlow product. Repa
 
 ## What works in this version
 
-- A Gmail Apps Script checks new Inbox threads every **5 minutes**.
+- A Gmail Apps Script checks new Inbox threads every **30 minutes**.
 - Detects auto-replies/newsletters and its own notifications to avoid loops.
 - Detects common automotive categories (SRS, brakes, starting, STK, ordinary service, tires).
 - Extracts available make, year, telephone, VIN; flags missing information. Extraction is deterministic, not a generative AI model.
@@ -22,7 +22,7 @@ Adds a **real Gmail automation** to the existing AiAgency/AutoFlow product. Repa
 3. Change `AF_settings()` in `Code.gs`: real `workshopName`, `ownerEmail` and optional `workshopPhone`.
 4. Run `AF_install()` once, approve Google's Gmail/Sheets authorization. Google will create a private sheet and two triggers.
 5. Send a **new** test email from another address to the workshop Gmail (installation intentionally ignores older mail).
-6. Within about five minutes, the sender should receive a receipt; the owner should get a summary, and the Google Sheet should gain a new row.
+6. Within about 30 minutes, the sender should receive a receipt; the owner should get a summary, and the Google Sheet should gain a new row.
 7. If needed, run `AF_pause()` to stop automatically processing mail; all previously processed data remains.
 
 **Important:** Run the script in a business account with permission to access mail. It needs broad Gmail permissions; do not share the Apps Script project publicly. In the EU, set up GDPR notice/retention, access controls and a processor agreement before onboarding real clients. Do not feed client messages into external AI services without appropriate authorization.
@@ -53,3 +53,6 @@ Alternatively, to ingest missed calls in this Apps Script:
 ## Development
 
 `node --test test.mjs` executes basic parsing, notification and deduplication tests under a mocked Apps Script runtime. `index.html` is a browser-only interactive simulation, not the production email integration.
+## Updating an existing installation
+
+Replace `Code.gs` with this version and run `AF_setHalfHourInterval()` exactly once to switch to a 30-minute check. This preserves the original installation date, Sheet and saved cases. Do not rerun `AF_install()` merely to change the interval.
