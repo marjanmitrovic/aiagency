@@ -1655,43 +1655,6 @@
         </div>
       </div>
     </section>
-    <section id="ai-audit-card" style="padding:26px 0 18px;">
-      <div class="container">
-        <a id="aiAuditCardLink" href="audit.html?lang=en" style="display:block;text-decoration:none;">
-          <div class="card" style="position:relative;overflow:hidden;padding:32px;border-radius:28px;border:1px solid rgba(103,232,249,.24);background:radial-gradient(circle at 85% 20%,rgba(103,232,249,.14),transparent 28%),linear-gradient(135deg,rgba(138,164,255,.13),rgba(255,255,255,.055));box-shadow:0 28px 80px rgba(0,0,0,.28);">
-            <div style="position:absolute;right:-30px;top:-55px;width:220px;height:220px;border:1px solid rgba(103,232,249,.16);border-radius:50%;"></div>
-            <div style="position:absolute;right:65px;top:30px;width:95px;height:95px;border:1px solid rgba(138,164,255,.22);border-radius:50%;"></div>
-            <div style="position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;">
-              <div>
-                <div id="auditCardEyebrow" style="display:inline-flex;padding:7px 11px;border-radius:999px;border:1px solid rgba(103,232,249,.25);background:rgba(103,232,249,.08);color:var(--accent-2);font-weight:900;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;">FREE AI BUSINESS AUDIT</div>
-                <h2 id="auditCardTitle" style="margin:14px 0 10px;font-size:clamp(1.65rem,3vw,2.55rem);line-height:1.08;max-width:760px;">How much time and money could AI save your business?</h2>
-                <p id="auditCardText" style="margin:0;max-width:760px;color:var(--muted);font-size:1rem;">Get an instant estimate of automation potential, monthly time savings and financial value in 3–5 minutes.</p>
-                <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px;">
-                  <span id="auditCardTag1" style="padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);font-size:.84rem;font-weight:800;">3–5 min</span>
-                  <span id="auditCardTag2" style="padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);font-size:.84rem;font-weight:800;">Free</span>
-                  <span id="auditCardTag3" style="padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);font-size:.84rem;font-weight:800;">Instant result</span>
-                </div>
-              </div>
-              <div id="auditCardButton" class="btn btn-primary" style="white-space:nowrap;min-width:210px;text-align:center;">CALCULATE MY AI POTENTIAL →</div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <script>
-      (function(){
-        const copy={
-          en:{e:'FREE AI BUSINESS AUDIT',t:'How much time and money could AI save your business?',x:'Get an instant estimate of automation potential, monthly time savings and financial value in 3–5 minutes.',a:'3–5 min',b:'Free',c:'Instant result',d:'CALCULATE MY AI POTENTIAL →'},
-          sr:{e:'BESPLATAN AI BUSINESS AUDIT',t:'Koliko vremena i novca AI može da uštedi vašoj firmi?',x:'Za 3–5 minuta dobijate procenu potencijala automatizacije, mesečne uštede vremena i finansijske vrednosti.',a:'3–5 min',b:'Besplatno',c:'Rezultat odmah',d:'IZRAČUNAJ MOJ AI POTENCIJAL →'},
-          cz:{e:'AI BUSINESS AUDIT ZDARMA',t:'Kolik času a peněz může AI ušetřit vaší firmě?',x:'Za 3–5 minut získáte odhad potenciálu automatizace, měsíční úspory času a finanční hodnoty.',a:'3–5 min',b:'Zdarma',c:'Výsledek ihned',d:'SPOČÍTAT MŮJ AI POTENCIÁL →'}
-        };
-        const q=id=>document.getElementById(id);
-        function apply(l){l=copy[l]?l:'en';const o=copy[l];q('auditCardEyebrow').textContent=o.e;q('auditCardTitle').textContent=o.t;q('auditCardText').textContent=o.x;q('auditCardTag1').textContent=o.a;q('auditCardTag2').textContent=o.b;q('auditCardTag3').textContent=o.c;q('auditCardButton').textContent=o.d;q('aiAuditCardLink').href='audit.html?lang='+l;}
-        document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>apply(b.dataset.lang),0)));
-        const active=document.querySelector('.lang-btn.active');apply(active?active.dataset.lang:'en');
-      })();
-      </script>
-    </section>
-
     <section id="demo-products">
       <div class="container">
         <div class="section-head">
