@@ -1,8 +1,6 @@
 name: Add AI audit card
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
